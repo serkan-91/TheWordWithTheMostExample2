@@ -34,14 +34,14 @@ function main() {
         });
         while (true) {
             const randomIndex = Math.floor(Math.random() * wordsFromApiArray.length);
-            const selectedWord = wordsFromApiArray[randomIndex].word;
-            fs.appendFileSync('ApiWords.txt', selectedWord + '\n', 'utf8');
-            const path = 'ApiWords.txt';
+            const selectedWord = wordsFromApiArray[randomIndex];
+            fs.appendFileSync('ApiWords2.txt', selectedWord + '\n', 'utf8');
+            const path = 'ApiWords2.txt';
             const stats = fs.statSync(path);
             const fileSize = stats.size;
-            const GB = fileSize / (1024 * 1024 * 1024);
-            if (GB >= 4) {
-                console.log('Dosya 4 GB veya daha b�y�k.');
+            const MB = fileSize / (1024 * 1024);
+            if (MB >= 2) {
+                console.log('Dosya 2 MB veya daha b�y�k.');
                 break; // D�ng�y� burada sonland�r�n
             }
         }
